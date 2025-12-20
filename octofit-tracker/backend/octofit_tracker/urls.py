@@ -37,7 +37,9 @@ def api_root(request):
     api_url = f"https://{codespace_name}-8000.app.github.dev/api/"
     return JsonResponse({"api_root": api_url})
 
+
 urlpatterns = [
+    path('', api_root, name='api-root'),
     path('admin/', admin.site.urls),
     path('api/', api_root, name='api-root'),
     path('api/', include(router.urls)),
